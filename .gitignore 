@@ -1,0 +1,21 @@
+# Node modules
+node_modules/
+
+# Lock file (si tu ne veux pas le versionner)
+package-lock.json
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+.env.local
+
+# Build folders
+dist/
+build/
+
+# OS
+.DS_Store
