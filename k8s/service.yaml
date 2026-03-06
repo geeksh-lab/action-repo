@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: inventory-container
-          image: sudo3k/actions:46e85c6
+          image: sudo3k/actions:f54132d
           ports:
             - containerPort: 3000
