@@ -1,5 +1,9 @@
 # Cloud-Native App Delivery – Inventory Application
 
+---
+
+# 🇬🇧 English Version
+
 ## 📌 Project Overview
 
 This project demonstrates a **complete Cloud-Native application delivery pipeline**, from containerization to automated deployment on a Kubernetes cluster.
@@ -15,22 +19,22 @@ The project includes:
 
 ---
 
-# 🏗 Architecture
+## 🏗 Architecture
 
 Developer → GitHub Repository → GitHub Actions (CI) → DockerHub → Kubernetes Cluster → Web Application
 
 Technologies used:
 
-* **Docker**
-* **GitHub Actions**
-* **Docker Hub**
-* **Kubernetes**
-* **Minikube**
-* **Node.js**
+* Docker
+* GitHub Actions
+* Docker Hub
+* Kubernetes
+* Minikube
+* Node.js
 
 ---
 
-# 📂 Repository Structure
+## 📂 Repository Structure
 
 ```
 Cloud-Native-App-Delivery
@@ -51,7 +55,7 @@ Cloud-Native-App-Delivery
 
 ---
 
-# 🐳 1. Run Application Locally with Docker
+## 🐳 Run Application Locally with Docker
 
 ### Build the Docker image
 
@@ -67,17 +71,15 @@ docker run -p 3000:3000 inventory-app
 
 ### Access the application
 
-Open your browser:
-
 ```
 http://localhost:3000
 ```
 
 ---
 
-# ⚙️ 2. CI/CD Pipeline (GitHub Actions)
+## ⚙️ CI/CD Pipeline (GitHub Actions)
 
-A **GitHub Actions workflow** automatically builds and pushes the Docker image whenever code is pushed to the main branch.
+A **GitHub Actions workflow** automatically builds and pushes the Docker image whenever code is pushed to the `main` branch.
 
 Pipeline steps:
 
@@ -87,13 +89,7 @@ Pipeline steps:
 4. Tag image using commit SHA
 5. Push image to DockerHub
 
-Example pipeline configuration:
-
-```
-.github/workflows/docker.yml
-```
-
-The image is pushed to DockerHub with the following tags:
+The image is pushed with the following tags:
 
 ```
 sudo3k/actions:<commit_sha>
@@ -102,9 +98,9 @@ sudo3k/actions:latest
 
 ---
 
-# ☸️ 3. Kubernetes Deployment
+## ☸️ Kubernetes Deployment
 
-The application is deployed on a Kubernetes cluster using **Deployment** and **Service** manifests.
+The application is deployed using Kubernetes manifests.
 
 ### Deployment
 
@@ -117,7 +113,7 @@ k8s/deployment.yaml
 
 ### Service
 
-A **NodePort service** exposes the application outside the cluster.
+A **NodePort Service** exposes the application externally.
 
 ```
 k8s/service.yaml
@@ -125,7 +121,7 @@ k8s/service.yaml
 
 ---
 
-# 🚀 Deploy to Kubernetes
+## 🚀 Deploy to Kubernetes
 
 Apply the manifests:
 
@@ -134,27 +130,15 @@ kubectl apply -f k8s/deployment.yaml
 kubectl apply -f k8s/service.yaml
 ```
 
-Verify resources:
+Verify cluster resources:
 
 ```bash
 kubectl get all
 ```
 
-Example output:
-
-```
-pod/inventory-app-xxxxx   Running
-pod/inventory-app-xxxxx   Running
-pod/inventory-app-xxxxx   Running
-
-deployment.apps/inventory-app   3/3
-
-service/inventory-service   NodePort
-```
-
 ---
 
-# 🌐 Access the Application
+## 🌐 Access the Application
 
 If using Minikube:
 
@@ -170,71 +154,176 @@ http://<minikube-ip>:30007
 
 ---
 
-# 📸 Required Screenshots
-
-The following screenshots demonstrate the correct functioning of the project.
+## 📸 Screenshots
 
 ### CI/CD Pipeline
 
-GitHub Actions successful pipeline execution.
-
 <img src="screenshots/github-actions.png" width="700"/>
-
----
 
 ### DockerHub Image
 
-Docker image pushed with the correct tag.
-
 <img src="screenshots/dockerhub.png" width="700"/>
-
----
 
 ### Kubernetes Cluster
 
-Output of the following command:
-
-```
-kubectl get all
-```
-
 <img src="screenshots/kubernetes.png" width="700"/>
 
----
-
 ### Application Running
-
-Web browser displaying the application.
 
 <img src="screenshots/application.png" width="700"/>
 
 ---
 
-# 📊 Key DevOps Concepts Demonstrated
+## 📊 DevOps Concepts Demonstrated
 
-This project demonstrates several important DevOps practices:
+This project demonstrates key DevOps practices:
 
-* **Containerization**
-* **Continuous Integration**
-* **Infrastructure as Code**
-* **Kubernetes orchestration**
-* **Automated image distribution**
-* **Scalable application deployment**
+* Containerization
+* Continuous Integration
+* Infrastructure as Code
+* Kubernetes orchestration
+* Automated image distribution
+* Scalable application deployment
 
 ---
 
-# 🔮 Possible Improvements
+## 🔮 Possible Improvements
 
-Future improvements could include:
+Future enhancements could include:
 
 * Kubernetes **Ingress Controller**
-* Automatic **CD deployment**
+* Automated **Continuous Deployment**
 * **Helm charts**
-* **Monitoring with Prometheus & Grafana**
-* **Container security scanning**
+* **Monitoring (Prometheus + Grafana)**
+* **Security scanning for containers**
 
 ---
 
-# 👨‍💻 ASSETS (SCREENSHOTS)
+# 🇫🇷 Version Française
 
-Check out the [screenshots](screenshots) folder for more details.
+## 📌 Présentation du Projet
+
+Ce projet démontre la mise en place d’une **chaîne complète de livraison d’application Cloud-Native**, allant de la conteneurisation jusqu’au déploiement automatisé sur un cluster Kubernetes.
+
+L’objectif est de mettre en œuvre un **workflow DevOps moderne** garantissant fiabilité, automatisation et scalabilité pour le déploiement d’une application de gestion de stock.
+
+Le projet inclut :
+
+* La conteneurisation de l’application avec **Docker**
+* La construction et le push automatique de l’image avec **GitHub Actions**
+* L’orchestration du déploiement avec **Kubernetes**
+* L’exposition de l’application via un **Service Kubernetes**
+
+---
+
+## 🏗 Architecture
+
+Développeur → Dépôt GitHub → GitHub Actions (CI) → DockerHub → Cluster Kubernetes → Application Web
+
+Technologies utilisées :
+
+* Docker
+* GitHub Actions
+* Docker Hub
+* Kubernetes
+* Minikube
+* Node.js
+
+---
+
+## 🐳 Lancer l’application localement avec Docker
+
+### Construire l’image
+
+```bash
+docker build -t inventory-app .
+```
+
+### Lancer le conteneur
+
+```bash
+docker run -p 3000:3000 inventory-app
+```
+
+### Accéder à l’application
+
+```
+http://localhost:3000
+```
+
+---
+
+## ⚙️ Pipeline CI/CD
+
+Un pipeline **GitHub Actions** est déclenché automatiquement à chaque `git push` sur la branche `main`.
+
+Étapes du pipeline :
+
+1. Récupération du code (checkout)
+2. Connexion à DockerHub
+3. Construction de l’image Docker
+4. Tag de l’image avec le SHA du commit
+5. Push de l’image sur DockerHub
+
+---
+
+## ☸️ Déploiement Kubernetes
+
+L’application est déployée sur Kubernetes à l’aide de manifestes YAML.
+
+### Deployment
+
+* 3 réplicas pour la haute disponibilité
+* Utilisation de l’image DockerHub générée par le pipeline CI
+
+### Service
+
+Un **Service NodePort** permet d’exposer l’application en dehors du cluster.
+
+---
+
+## 🚀 Déploiement sur Kubernetes
+
+```bash
+kubectl apply -f k8s/deployment.yaml
+kubectl apply -f k8s/service.yaml
+```
+
+Vérification :
+
+```bash
+kubectl get all
+```
+
+---
+
+## 🌐 Accès à l’application
+
+Avec Minikube :
+
+```bash
+minikube service inventory-service
+```
+
+ou
+
+```
+http://<minikube-ip>:30007
+```
+
+---
+
+## 📸 Captures d’écran
+
+Les captures d’écran du projet sont disponibles dans le dossier :
+
+```
+/screenshots
+```
+
+Elles montrent :
+
+* Le pipeline CI/CD GitHub Actions
+* L’image Docker sur DockerHub
+* Le cluster Kubernetes en fonctionnement
+* L’application accessible depuis un navigateur
